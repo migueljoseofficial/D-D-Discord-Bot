@@ -22,30 +22,35 @@ def run():
     async def ping(ctx):
         await ctx.send("pong")
     
-    ##the following commands create
+    ##the following commands are the basic dice for d&d
     @bot.command()
-    async def d4(ctx):
-        await ctx.send(random.randint(1, 4))
+    async def d(ctx, dice_type: int):
+        if dice_type in [4, 6, 8, 10, 12, 20]:
+            roll = random.randint(1, dice_type)
+            await ctx.send(f"You have rolled {roll}!")
+        else:
+            await ctx.send("Invalid dice type!")
 
-    @bot.command()
-    async def d6(ctx):
-        await ctx.send(random.randint(1, 6))
 
-    @bot.command()
-    async def d8(ctx):
-        await ctx.send(random.randint(1, 8))
+    # @bot.command()
+    # async def d6(ctx):
+    #     await ctx.send(random.randint(1, 6))
 
-    @bot.command()
-    async def d10(ctx):
-        await ctx.send(random.randint(1, 10))
+    # @bot.command()
+    # async def d8(ctx):
+    #     await ctx.send(random.randint(1, 8))
+
+    # @bot.command()
+    # async def d10(ctx):
+    #     await ctx.send(random.randint(1, 10))
     
-    @bot.command()
-    async def d12(ctx):
-        await ctx.send(random.randint(1, 12))
+    # @bot.command()
+    # async def d12(ctx):
+    #     await ctx.send(random.randint(1, 12))
     
-    @bot.command()
-    async def d20(ctx):
-        await ctx.send(random.randint(1, 20))
+    # @bot.command()
+    # async def d20(ctx):
+    #     await ctx.send(random.randint(1, 20))
 
 
 
